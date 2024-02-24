@@ -1,12 +1,12 @@
 # 1. Site Settings
-title               : pRoJEct-VeXEd
-owner               : "DeerRIDER"
-url                : "https://akiritsu.github.io"
+title               : TZF BLOG
+owner               : "TZF"
+url                : "https://tzf0237.github.io"
 baseurl            : "/pRoJEct-VeXEd"
 permalink           : /:title/
-description         : "A hacker-style note-keeping website template."
+description         : "Tang Zifan's personal blog site."
 markdown            : kramdown
-statement           : "Designed by DeerRIDER, All Rights Reserved"
+statement           : "HeHe"
 bgtext              : "ABCFGHKLMNPQRSVWXYZabcdefghijklmnopqrstuvwxyz@#$%&*+-;/[]<>~" # texts randomly displayed in background
 
 # 2. Your Collections
@@ -15,46 +15,35 @@ bgtext              : "ABCFGHKLMNPQRSVWXYZabcdefghijklmnopqrstuvwxyz@#$%&*+-;/[]
 collection_order    : 
   [
     "posts",
-    "math",
-    "album",
-    "physics",
-    "biology",
-    "finance",
-    "physics",
+    "algorithm",
+    "front-end",
     "my_notes",
     "portfolio",
   ]
 collections:
-  math:   
+  algorithm:   
     output          : true
     permalink       : /:collection/:title/
     sort_by         : date
-    alias           : "Mathematics"
+    alias           : "算法"
   portfolio:
     output          : true
     permalink       : /:collection/:title/
+    alias           : "日常"
     order: # specify post order manually
       - portfolio3.md
       - portfolio2.md
       - portfolio1.md
-  album:
+  front-end:
     output          : true
     permalink       : /:collection/:title/
     sort_by         : date
-  physics:
-    output          : true
-    permalink       : /:collection/:title/
-  biology:
-    output          : true
-    permalink       : /:collection/:title/
-  finance:
-    output          : true
-    permalink       : /:collection/:title/
+    alias           : "前端"
   my_notes:
     output          : true
     permalink       : /:collection/:title/
     # An alias should be given or the UNDERSCORE will appeared 
-    alias           : "My Notes"
+    alias           : "日记"
   posts:
     output          : true
 
@@ -76,7 +65,7 @@ defaults:
       encrypted_text      : false       # whether use encrytion function by default
       toc                 : true        # whether show table of content by default
       toc_level           : 3           # the toc depth by default
-      author              : "DeerRIDER" # author name by default
+      author              : "TangZifan" # author name by default
       show_date           : true        # whether show date message by default
       category            :             # category by default
       post_list           : false       # whether show list of post by default      
@@ -84,11 +73,11 @@ defaults:
       footer              : true        # whether show footer by default
 
 # 5. Social Media Accounts
-email               : "https://github.com/akiritsu/pRoJEct-VeXEd" 
+email               : "https://tzf0237.github.io" 
 linkedin            : 
 github              : "just-test" 
 gitlab              : 
-website             : "https://github.com/akiritsu/pRoJEct-VeXEd"
+website             : "https://github.com/TZF0237"
 twitter             : "just-test"
 facebook            : "just-test"
 instagram           : 
