@@ -4,7 +4,7 @@ owner               : "TangZiFan"
 url                : "https://tzf0237.github.io"
 baseurl            : "/pRoJEct-VeXEd"
 permalink           : /:title/
-description         : "Tang Zifan's personal blog site."
+description         : "A hacker-style note-keeping website template."
 markdown            : kramdown
 statement           : "Designed by DeerRIDER, All Rights Reserved"
 bgtext              : "ABCFGHKLMNPQRSVWXYZabcdefghijklmnopqrstuvwxyz@#$%&*+-;/[]<>~" # texts randomly displayed in background
