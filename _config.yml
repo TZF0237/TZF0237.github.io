@@ -6,7 +6,7 @@ baseurl            : "/pRoJEct-VeXEd"
 permalink           : /:title/
 description         : "Tang Zifan's personal blog site."
 markdown            : kramdown
-statement           : "HeHe"
+statement           : "Designed by DeerRIDER, All Rights Reserved"
 bgtext              : "ABCFGHKLMNPQRSVWXYZabcdefghijklmnopqrstuvwxyz@#$%&*+-;/[]<>~" # texts randomly displayed in background
 
 # 2. Your Collections
