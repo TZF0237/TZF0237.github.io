@@ -15,46 +15,35 @@ bgtext              : "ABCFGHKLMNPQRSVWXYZabcdefghijklmnopqrstuvwxyz@#$%&*+-;/[]
 collection_order    : 
   [
     "posts",
-    "math",
-    "album",
-    "physics",
-    "biology",
-    "finance",
-    "physics",
+    "algorithm",
+    "front-end",
     "my_notes",
     "portfolio",
   ]
 collections:
-  math:   
+  algorithm:   
     output          : true
     permalink       : /:collection/:title/
     sort_by         : date
-    alias           : "Mathematics"
+    alias           : "算法"
   portfolio:
     output          : true
     permalink       : /:collection/:title/
+    alias           : "日常"
     order: # specify post order manually
       - portfolio3.md
       - portfolio2.md
       - portfolio1.md
-  album:
+  front-end:
     output          : true
     permalink       : /:collection/:title/
     sort_by         : date
-  physics:
-    output          : true
-    permalink       : /:collection/:title/
-  biology:
-    output          : true
-    permalink       : /:collection/:title/
-  finance:
-    output          : true
-    permalink       : /:collection/:title/
+    alias           : "前端"
   my_notes:
     output          : true
     permalink       : /:collection/:title/
     # An alias should be given or the UNDERSCORE will appeared 
-    alias           : "My Notes"
+    alias           : "日记"
   posts:
     output          : true
 
