@@ -30,10 +30,10 @@ collections:
     output          : true
     permalink       : /:collection/:title/
     alias           : "日常"
-    order: # specify post order manually
-      - portfolio3.md
-      - portfolio2.md
-      - portfolio1.md
+    #order: # specify post order manually
+    #  - portfolio3.md
+    #  - portfolio2.md
+    #  - portfolio1.md
   front-end:
     output          : true
     permalink       : /:collection/:title/
@@ -73,11 +73,11 @@ defaults:
       footer              : true        # whether show footer by default
 
 # 5. Social Media Accounts
-email               : "https://github.com/akiritsu/pRoJEct-VeXEd" 
+email               : "https://tzf0237.github.io" 
 linkedin            : 
 github              : "just-test" 
 gitlab              : 
-website             : "https://github.com/akiritsu/pRoJEct-VeXEd"
+website             : "https://tzf0237.github.io"
 twitter             : "just-test"
 facebook            : "just-test"
 instagram           : 
