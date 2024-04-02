@@ -1,5 +1,5 @@
 ---
-title: Literature
+title: 前端
 layout: simple
 order: 5
 ---
@@ -8,6 +8,5 @@ order: 5
 
 #### A Hunger Artist by Franz Kafka
 
-- [English](/literature/stories/Franz_Kafka/A_Hunger_Artist)
-- [Chinese](/literature/stories/Franz_Kafka/饥饿艺术家)
-- [Original German](/literature/stories/Franz_Kafka/Ein_Hungerkuenstler)
+- [01.02日学习笔记前端](/blog/01.02日学习笔记前端.md)
+- [01.03日学习笔记前端](/blog/01.03日学习笔记前端.md)

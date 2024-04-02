@@ -1,5 +1,11 @@
 ---
-title: About me
+title: 算法
 layout: simple
 order: 1
 ---
+
+### 日常笔记存放
+
+
+- [pb_ds库笔记](/blog/GNUC++STL中的pb_ds库.md)
+- [3月27日算法学习](/blog/3月27日算法学习.md)
