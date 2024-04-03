@@ -1,3 +1,8 @@
+---
+title: 前端
+order: 5
+---
+
 # GNU C++ STL 中的pb_ds库 （Policy Based Data Structures)
 
 在 C++ 编程中，数据结构的选择往往对算法的性能和效率有着直接的影响。然而，标准模板库（STL）中提供的数据结构往往是具有固定行为的，这可能无法满足某些特定场景下的需求。在这种情况下，GNU C++ STL 中的 Policy Based Data Structures（`pb_ds`）库就派上了用场。
