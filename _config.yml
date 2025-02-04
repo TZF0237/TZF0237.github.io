@@ -1,15 +1,15 @@
-#### Exclude
+#### Exclude 生成站点时排除的文件或目录
 exclude: [".rvmrc", ".rbenv-version", "README.md", "README_en.md", "Rakefile", "changelog.md"]
 
-#### Code Highlighter
+#### Code Highlighter 代码高亮显示
 # 'pygments' is unsupported on GitHub Pages now.
 highlighter: rouge
 
-#### Permalink
+#### Permalink 设置文章永久链接结构为 “漂亮链接”
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: pretty
 
-#### Markdown Processors
+#### Markdown Processors md处理器
 # 'redcarpet' is unsupported on GitHub Pages now.
 markdown: kramdown
 kramdown:
@@ -24,12 +24,12 @@ defaults:
     values:
       layout: "post"
 
-#### Pagination
+#### Pagination 每页显示的文章数量
 paginate: 20
 
-#### Site
-title : Jekyll Jacman
-tagline: A fresh looking and responsive theme for Jekyll
+#### Site 站点标题和副标题及静态资源路径
+title : Just DO It
+tagline: I am not afraid of tomorrow for I have seen yesterday and love today.
 assets: /assets
 url:
 baseurl:
@@ -37,7 +37,7 @@ baseurl:
 #### Language
 language: zh-CN    ## blog site languages: en, zh-CN, zh-TW, de
 
-#### Menu
+#### Menu 导航菜单
 menu:
   Home: /
   Archives: /archives
@@ -49,7 +49,7 @@ menu:
 ## title: tags (or categories)
 ## ---
 
-#### Widgets
+#### Widgets 要在站点上显示的小部件
 widgets:
 - category
 - tag
@@ -61,19 +61,19 @@ widgets:
 ## provide seven widgets:github-card,category,tag,rss,archive,tagcloud,links,weibo,douban
 
 
-#### RSS
+#### RSS 指定站点的RSS源地址，用于生成订阅源
 rss: /atom.xml ## RSS address.
 
-#### Image
+#### Image 站点图片，banner_img为横幅图像
 imglogo:
   enable: true             ## display image logo true/false.
   src: img/logo.png        ## `.svg` and `.png` are recommended,please put image into the theme folder `/jacman/source/img`.
 favicon: img/favicon.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/jacman/source/img`.
 apple_icon: img/jacman.jpg ## size:114px*114px,please put image into the theme folder `/jacman/source/img`.
 author_img: img/author.jpg ## size:220px*220px.display author avatar picture.if don't want to display,please don't set this.
-banner_img: #img/banner.jpg ## size:1920px*200px+. Banner Picture
+banner_img: img/banner.jpg ## size:1920px*200px+. Banner Picture
 
-#### index post is expanding or not
+#### index post is expanding or not 摘要展开显示和阅读文本
 index:
   expand: true           ## default is unexpanding,so you can only see the short description of each post.
   excerpt_link: Read More
@@ -82,10 +82,10 @@ close_aside: false  #close sidebar in post page if true
 mathjax: true      #enable mathjax if true
 share_to: true #enable share-to buttons if true
 
-#### Author information
+#### Author information 作者信息包括名字简介等
 author:
-  name: yitao      ## e.g. wuchong Author name
-  intro_line1:  "Hello ,I'm Larry Page in Google."    ## your introduction on the bottom of the page
+  name: TangZiFan      ## e.g. wuchong Author name
+  intro_line1:  "Hello ,I'm Novice in IT."    ## your introduction on the bottom of the page
   intro_line2:  "This is my blog,believe it or not."  ## the 2nd line
   weibo:      ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
   weibo_verifier:  ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
@@ -101,19 +101,19 @@ author:
   stackoverflow:  ## e.g. 3222790 for http://stackoverflow.com/users/3222790/jark
 ## if you set them, the corresponding  share button will show on the footer
 
-#### Toc
+#### Toc 文章和侧边栏是否显示目录
 toc:
   article: true   ## show contents in article.
   aside: true     ## show contents in aside.
 ## you can set both of the value to true of neither of them.
 ## if you don't want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
 
-#### Links
+#### Links 友情链接
 links:
   码农圈: https://coderq.com
   Jark's Blog: http://wuchong.me
 
-#### Comment
+#### Comment 评论系统
 duoshuo_shortname:    ## e.g. wuchong      your duoshuo short name.       website: http://duoshuo.com
 disqus_shortname:     ## e.g. wuchong      your disqus short name.        website: http://disqus.com
 hypercomments_id:     ## e.g. 91510        your hypercomments widget id.  website: http://hypercomments.com
@@ -121,13 +121,13 @@ yungentie_productkey: ## your netease yungentie product key.              websit
 ## set only one of them
 ## duoshuo will be shutting down on June 1, 2017
 
-#### Share button
+#### Share button 分享按钮
 jiathis:
   enable: false ## if you use jiathis as your share tool,the built-in share tool won't be display.
   id:    ## e.g. 1889330 your jiathis ID.
   tsina: ## e.g. 2176287895 Your weibo id,It will be used in share button.
 
-#### Analytics
+#### Analytics 配置网站分析
 google_analytics:
   enable: false
   id:        ## e.g. UA-46321946-2 your google analytics ID.
@@ -141,11 +141,11 @@ cnzz_tongji:
   enable: false
   siteid:    ## e.g. 1253575964 your cnzz tongji site id
 
-#### Miscellaneous
+#### Miscellaneous 启用fancybox插件，totop滚动到顶部功能
 fancybox: true        ## if you use gallery post or want use fancybox please set the value to true.
 totop: true           ## if you want to scroll to top in every post set the value to true
 
-#### Custom Search
+#### Custom Search 自定义搜索设置
 google_cse:
   enable: false
   cx: 018294693190868310296:abnhpuysycw  ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.
