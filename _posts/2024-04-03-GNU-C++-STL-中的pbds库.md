@@ -5,7 +5,7 @@ date: 2024-04-03
 tags:
 - c++
 - DataStructure
-- acm-icpc
+- ACM-ICPC
 categories: C++
 description: `pb_ds` 库是 GNU C++ STL 的一部分，它提供了一系列灵活、高效的数据结构，允许开发者根据具体需求定制数据结构的行为。在本篇博客中，我们将深入了解 `pb_ds` 库中提供的主要功能和数据结构。
 ---
