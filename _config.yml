@@ -131,13 +131,13 @@ jiathis:
 
 #### Analytics 配置网站分析
 google_analytics:
-  enable: false
+  enable: true
   id: G-FBH0T7X2D9       ## e.g. UA-46321946-2 your google analytics ID.
   site:      ## e.g. wuchong.me your google analytics site or set the value as auto.
 ## You MUST upgrade to Universal Analytics first!
 ## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN
 baidu_tongji:
-  enable: false
+  enable: true
   sitecode: 226a1e9b0d253c5eb31717b480630438 ## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code
 cnzz_tongji:
   enable: false
