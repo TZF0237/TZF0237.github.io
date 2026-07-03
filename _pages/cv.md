@@ -11,11 +11,11 @@ redirect_from:
 
 ## Zifan Tang
 
-📧 3340589482@qq.com | 🐙 [github.com/TZF0237](https://github.com/TZF0237)
+📧 3340589482@qq.com | 🐙 [github.com/TZF0237](https://github.com/TZF0237) | [洛谷](https://www.luogu.com.cn/user/802363) | [Codeforces](https://codeforces.com/profile/TangZiFan) | 
 
 ### Education
 
-*Add your education history here.*
+2022.09-2026.06 Guizhou Minzu University Bachelor of Engineering in Computer Science and Technology
 
 ### Experience
 
