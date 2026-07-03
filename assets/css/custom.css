@@ -804,6 +804,15 @@ h3:hover .heading-anchor {
   margin-bottom: 1.5em;
 }
 
+/* Push sidebar to the left of the content container,
+   allowing reading area to use full container width */
+@media screen and (min-width: 1024px) {
+  .sidebar {
+    /* Position sidebar in the left margin outside #main */
+    left: max(1rem, calc((100vw - 1480px) / 2));
+  }
+}
+
 /* Wider PDF viewer */
 .pdf-viewer__iframe {
   min-height: 600px;

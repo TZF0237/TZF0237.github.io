@@ -9,10 +9,10 @@ author_profile: true
 
 <p>My competition experiences and awards.</p>
 
-<div class="archive">
+<div class="competition-grid">
   {% assign competitions_by_date = site.competitions | sort: 'date' | reverse %}
   {% for post in competitions_by_date %}
-    <div class="{{ include.type | default: "list" }}__item">
+    <div class="competition-card">
       <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
         <h2 class="archive__item-title" itemprop="headline">
           <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title }}</a>
@@ -29,20 +29,73 @@ author_profile: true
           </p>
         {% endif %}
 
-        {% if post.excerpt %}
-          <p class="archive__item-excerpt" itemprop="description" style="margin-top: 0.5rem;">{{ post.excerpt | markdownify }}</p>
-        {% endif %}
-
-        {% if post.certificate_url %}
-          <p><a href="{{ post.certificate_url }}" class="btn btn--small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> View Certificate</a></p>
-        {% endif %}
-
         {% if post.certificate_img %}
           <figure class="certificate-figure">
             <img src="{{ post.certificate_img | prepend: '/images/' | prepend: base_path }}" alt="Certificate for {{ post.title | escape }}" loading="lazy" class="certificate-img" />
           </figure>
         {% endif %}
+
+        {% if post.excerpt %}
+          <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+        {% endif %}
+
+        {% if post.certificate_url %}
+          <p><a href="{{ post.certificate_url }}" class="btn btn--small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> View Certificate</a></p>
+        {% endif %}
       </article>
     </div>
   {% endfor %}
 </div>
+
+<style>
+.competition-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.competition-card {
+  border: 1px solid var(--global-border-color, #e9ecef);
+  border-radius: 8px;
+  padding: 1.25rem;
+  background: var(--global-bg-color, #fff);
+  transition: box-shadow 0.2s;
+}
+
+.competition-card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .competition-card {
+  border-color: #313244;
+  background: #1e1e2e;
+}
+
+[data-theme="dark"] .competition-card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+  .competition-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.competition-card .archive__item {
+  margin: 0;
+}
+
+.competition-card .archive__item-title {
+  margin-top: 0;
+}
+
+.competition-card .certificate-figure {
+  margin: 0.75rem 0;
+}
+
+.competition-card .certificate-img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+</style>
