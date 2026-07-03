@@ -1,0 +1,10 @@
+{% if page.toc %}
+<aside class="toc">
+  <div class="toc__header">
+    <h3 class="toc__title">{{ site.data.ui-text[site.locale].toc_label | default: "Table of Contents" }}</h3>
+  </div>
+  <nav id="toc" class="toc__nav">
+    <!-- Populated by JavaScript -->
+  </nav>
+</aside>
+{% endif %}

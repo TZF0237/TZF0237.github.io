@@ -1,0 +1,203 @@
+---
+layout: default
+---
+
+{% include base_path %}
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: "%B %d, %Y" }}">{% endif %}
+    {% if page.modified %}<meta itemprop="dateModified" content="{{ page.modified | date: "%B %d, %Y" }}">{% endif %}
+
+    <div class="page__inner-wrap">
+      {% unless page.header.overlay_color or page.header.overlay_image %}
+        <header>
+          {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+          {% if page.read_time %}
+            <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
+          {% endif %}
+        {% if page.modified %}
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time>{% if page.last_modified_at %} &nbsp;|&nbsp; <strong><i class="fa fa-fw fa-edit" aria-hidden="true"></i> Updated:</strong> <time datetime="{{ page.last_modified_at | date: '%Y-%m-%d' }}">{{ page.last_modified_at | date: "%B %d, %Y" }}</time>{% endif %}</p>
+        {% elsif page.last_modified_at %}
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time> &nbsp;|&nbsp; <strong><i class="fa fa-fw fa-edit" aria-hidden="true"></i> Updated:</strong> <time datetime="{{ page.last_modified_at | date: '%Y-%m-%d' }}">{{ page.last_modified_at | date: "%B %d, %Y" }}</time></p>
+        {% endif %}
+
+        {% if page.collection == 'teaching' %}
+          <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+        {% elsif page.collection == 'competitions' %}
+          <p class="page__award">{% if page.award %}<strong>{{ page.award }}</strong> · {% endif %}{{ page.date | default: "1900-01-01" | date: "%Y-%m-%d" }}</p>
+          {% if page.certificate_url %}
+            <p><a href="{{ page.certificate_url }}" class="btn btn--small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> View Certificate</a></p>
+          {% endif %}
+          {% if page.certificate_img %}
+            <figure class="certificate-figure">
+              <img src="{{ page.certificate_img | prepend: '/images/' | prepend: base_path }}" alt="Certificate for {{ page.title | escape }}" loading="lazy" class="certificate-img" />
+            </figure>
+          {% endif %}
+        {% elsif page.venue and page.date %}
+          <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+        {% elsif page.date %}
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+        {% endif %}
+        </header>
+      {% endunless %}
+
+      {% include series-nav.html %}
+
+      {% unless page.pdf_file %}
+        {% include toc.html %}
+      {% endunless %}
+
+      <section class="page__content" itemprop="text">
+        {% if page.pdf_file %}
+          {% assign pdf_path = page.pdf_file | prepend: "/files/" | prepend: base_path %}
+          <div class="pdf-viewer">
+            <div class="pdf-viewer__toolbar">
+              <span class="pdf-viewer__badge"><i class="fas fa-file-pdf"></i> PDF</span>
+              <a href="{{ pdf_path }}" class="btn btn--small" download><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="pdf-viewer__container">
+              <iframe src="{{ pdf_path }}" class="pdf-viewer__iframe" title="{{ page.title | escape }}" loading="lazy"></iframe>
+            </div>
+          </div>
+          {% if page.pdf_description %}
+            <div class="pdf-viewer__description">
+              {{ page.pdf_description | markdownify }}
+            </div>
+          {% endif %}
+        {% endif %}
+
+        {{ content }}
+
+        {% if page.citation and page.paperurl and page.slidesurl and page.bibtexurl %}
+          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
+        {% elsif page.citation and page.paperurl and page.slidesurl %}
+          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a></p>
+        {% elsif page.citation and page.paperurl and page.bibtexurl %}
+          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
+        {% elsif page.citation and page.paperurl %}
+          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a></p>
+        {% elsif page.citation and page.slidesurl and page.bibtexurl %}
+          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
+        {% elsif page.citation and page.slidesurl %}
+          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">Download Slides</a></p>
+        {% elsif page.slidesurl and page.bibtexurl %}
+          <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
+        {% elsif page.paperurl and page.bibtexurl %}
+          <p style="font-size: smaller"><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
+        {% elsif page.citation and page.bibtexurl %}
+          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
+        {% elsif page.citation %}
+          <p style="font-size: smaller">Recommended citation: {{ page.citation }}</p>
+        {% elsif page.slidesurl %}
+          <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a></p>
+        {% elsif page.bibtexurl %}
+          <p style="font-size: smaller"><a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
+        {% endif %}
+
+        {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+      </section>
+
+      <footer class="page__meta">
+        {% if site.data.ui-text[site.locale].meta_label %}
+          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+        {% endif %}
+        {% include page__taxonomy.html %}
+
+        {% if page.id %}
+        <div class="page__views">
+          <span id="busuanzi_container_page_pv" style="display: none;">
+            <i class="fa fa-eye" aria-hidden="true"></i> <span id="busuanzi_value_page_pv"></span> reads
+          </span>
+        </div>
+        {% endif %}
+      </footer>
+
+      {% if page.share %}{% include social-share.html %}{% endif %}
+
+      {% if page.id %}
+      <div class="emoji-reactions" data-page-url="{{ page.url }}">
+        <span class="emoji-reactions__label">Reactions:</span>
+        <button class="emoji-reaction" data-emoji="👍" title="Like">👍 <span class="emoji-count">0</span></button>
+        <button class="emoji-reaction" data-emoji="❤️" title="Love">❤️ <span class="emoji-count">0</span></button>
+        <button class="emoji-reaction" data-emoji="🤔" title="Think">🤔 <span class="emoji-count">0</span></button>
+        <button class="emoji-reaction" data-emoji="🎉" title="Celebrate">🎉 <span class="emoji-count">0</span></button>
+      </div>
+      {% endif %}
+
+      {% include post_pagination.html %}
+    </div>
+
+    {% if site.comments.provider and page.comments %}
+      {% include comments.html %}
+    {% endif %}
+  </article>
+
+  {% comment %}<!-- Related posts by tag overlap -->{% endcomment %}
+  {% if page.id and page.related and page.tags %}
+    {% assign max_related = 4 %}
+    {% assign related_posts = "" | split: "" %}
+    {% for post in site.posts %}
+      {% if post.url == page.url %}{% continue %}{% endif %}
+      {% assign overlap = 0 %}
+      {% for tag in page.tags %}
+        {% if post.tags contains tag %}
+          {% assign overlap = overlap | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+      {% if overlap > 0 %}
+        {% capture item %}{{ overlap }}|||{{ post.url }}{% endcapture %}
+        {% assign related_posts = related_posts | push: item %}
+      {% endif %}
+    {% endfor %}
+    {% assign sorted_related = related_posts | sort | reverse %}
+    {% assign related_count = 0 %}
+    {% assign display_posts = "" | split: "" %}
+    {% for item in sorted_related limit: max_related %}
+      {% assign parts = item | split: "|||" %}
+      {% assign post_url = parts[1] %}
+      {% assign display_posts = display_posts | push: post_url %}
+    {% endfor %}
+    {% if display_posts.size > 0 %}
+    <div class="page__related">
+      {% if site.data.ui-text[site.locale].related_label %}
+        <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "Related Posts" }}</h4>
+      {% endif %}
+      <div class="grid__wrapper">
+        {% for related_url in display_posts %}
+          {% for post in site.posts %}
+            {% if post.url == related_url %}
+              {% include archive-single.html type="grid" %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  {% elsif page.id and page.related and site.related_posts.size > 0 %}
+    <div class="page__related">
+      {% if site.data.ui-text[site.locale].related_label %}
+        <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "Related Posts" }}</h4>
+      {% endif %}
+      <div class="grid__wrapper">
+        {% for post in site.related_posts limit:4 %}
+          {% include archive-single.html type="grid" %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</div>

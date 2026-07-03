@@ -1,0 +1,48 @@
+---
+layout: archive
+title: "Competition"
+permalink: /competitions/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p>My competition experiences and awards.</p>
+
+<div class="archive">
+  {% assign competitions_by_date = site.competitions | sort: 'date' | reverse %}
+  {% for post in competitions_by_date %}
+    <div class="{{ include.type | default: "list" }}__item">
+      <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+        <h2 class="archive__item-title" itemprop="headline">
+          <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title }}</a>
+        </h2>
+
+        {% if post.award %}
+          <p class="page__award" style="margin: 0.25rem 0; font-size: 0.95rem;">🏆 <strong>{{ post.award }}</strong></p>
+        {% endif %}
+
+        {% if post.date %}
+          <p class="page__meta" style="margin: 0.25rem 0;">
+            <i class="fa fa-fw fa-calendar" aria-hidden="true"></i>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+          </p>
+        {% endif %}
+
+        {% if post.excerpt %}
+          <p class="archive__item-excerpt" itemprop="description" style="margin-top: 0.5rem;">{{ post.excerpt | markdownify }}</p>
+        {% endif %}
+
+        {% if post.certificate_url %}
+          <p><a href="{{ post.certificate_url }}" class="btn btn--small" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> View Certificate</a></p>
+        {% endif %}
+
+        {% if post.certificate_img %}
+          <figure class="certificate-figure">
+            <img src="{{ post.certificate_img | prepend: '/images/' | prepend: base_path }}" alt="Certificate for {{ post.title | escape }}" loading="lazy" class="certificate-img" />
+          </figure>
+        {% endif %}
+      </article>
+    </div>
+  {% endfor %}
+</div>

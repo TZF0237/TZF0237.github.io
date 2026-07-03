@@ -1,0 +1,18 @@
+# Navigation links for the top header bar.
+# Add, remove, or reorder items as needed.
+
+main:
+  - title: "Publications"
+    url: /publications/
+
+  - title: "Blogs Posts"
+    url: /blogs/
+
+  - title: "Competition"
+    url: /competitions/
+
+  - title: "CV"
+    url: /cv/
+
+  - title: "Friends"
+    url: /blogroll/

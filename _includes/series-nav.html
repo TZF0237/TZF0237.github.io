@@ -1,0 +1,48 @@
+{% if page.series %}
+{% assign series_name = page.series %}
+{% assign series_posts = site.posts | where: "series", series_name | sort: "series_order" %}
+
+{% if series_posts.size > 1 %}
+<div class="series-nav">
+  <div class="series-nav__header">
+    <span class="series-nav__label">📚 Series: <strong>{{ series_name }}</strong></span>
+    <span class="series-nav__count">Part {{ page.series_order | default: "?" }} of {{ series_posts.size }}</span>
+  </div>
+  <ul class="series-nav__list">
+    {% for post in series_posts %}
+      <li class="series-nav__item{% if post.url == page.url %} series-nav__item--current{% endif %}">
+        {% if post.url == page.url %}
+          <span class="series-nav__current">{{ post.series_order }}. {{ post.title | markdownify | strip_html | normalize_whitespace }}</span>
+        {% else %}
+          <a href="{{ post.url | prepend: base_path }}">{{ post.series_order }}. {{ post.title | markdownify | strip_html | normalize_whitespace }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="series-nav__footer">
+    {% assign current_index = 0 %}
+    {% for post in series_posts %}
+      {% if post.url == page.url %}
+        {% assign current_index = forloop.index %}
+      {% endif %}
+    {% endfor %}
+    {% assign prev_index = current_index | minus: 1 %}
+    {% assign next_index = current_index | plus: 1 %}
+    <span class="series-nav__prev">
+      {% for post in series_posts %}
+        {% if forloop.index == prev_index %}
+          <a href="{{ post.url | prepend: base_path }}">← {{ post.title | markdownify | strip_html | normalize_whitespace | truncate: 30 }}</a>
+        {% endif %}
+      {% endfor %}
+    </span>
+    <span class="series-nav__next">
+      {% for post in series_posts %}
+        {% if forloop.index == next_index %}
+          <a href="{{ post.url | prepend: base_path }}">{{ post.title | markdownify | strip_html | normalize_whitespace | truncate: 30 }} →</a>
+        {% endif %}
+      {% endfor %}
+    </span>
+  </div>
+</div>
+{% endif %}
+{% endif %}

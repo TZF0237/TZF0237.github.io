@@ -1,172 +1,353 @@
-#### Exclude 生成站点时排除的文件或目录
-exclude: [".rvmrc", ".rbenv-version", "README.md", "README_en.md", "Rakefile", "changelog.md"]
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your entire site, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# `jekyll serve -l -H localhost`. If you change this file, please restart the
+# server process.
 
-#### Code Highlighter 代码高亮显示
-# 'pygments' is unsupported on GitHub Pages now.
-highlighter: rouge
+# Basic Site Settings
+locale                   : "zh-CN"
+site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+title                    : "Zifan Tang's Blog"
+title_separator          : "|"
+name                     : &name "Zifan Tang"
+description              : &description "Zifan Tang's personal blog and portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
+url                      : https://tzf0237.github.io # The base hostname & protocol for your site
+baseurl                  : "" # the subpath of your site, e.g. "/blog"
+repository               : "TZF0237/TZF0237.github.io"
 
-#### Permalink 设置文章永久链接结构为 “漂亮链接”
-# For more see: http://jekyllrb.com/docs/permalinks/
-permalink: pretty
-
-#### Markdown Processors md处理器
-# 'redcarpet' is unsupported on GitHub Pages now.
-markdown: kramdown
-kramdown:
-    input: GFM
-
-#### Default Attributes
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-
-#### Pagination 每页显示的文章数量
-paginate: 20
-
-#### Site 站点标题和副标题及静态资源路径
-title : TangZiFan's Blog
-tagline: I am not afraid of tomorrow for I have seen yesterday and love today.
-assets: /assets
-url:
-baseurl:
-
-#### Language
-language: zh-CN    ## blog site languages: en, zh-CN, zh-TW, de
-
-#### Menu 导航菜单
-menu:
-  Home: /
-  Archives: /archives
-  About: /about
-## you can create `tags` and `categories` folders (I had created them already).
-## And create a `index.md` file in each of them.
-## set `front-matter`as
-## layout: tags (or categories)
-## title: tags (or categories)
-## ---
-
-#### Widgets 要在站点上显示的小部件
-widgets:
-- category
-- tag
-- tagcloud
-- links
-- douban
-- github-card
-- rss
-## provide seven widgets:github-card,category,tag,rss,archive,tagcloud,links,weibo,douban
-
-
-#### RSS 指定站点的RSS源地址，用于生成订阅源
-rss: /atom.xml ## RSS address.
-
-#### Image 站点图片，banner_img为横幅图像
-imglogo:
-  enable: true             ## display image logo true/false.
-  src: img/logo.png        ## `.svg` and `.png` are recommended,please put image into the theme folder `/jacman/source/img`.
-favicon: img/favicon.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/jacman/source/img`.
-apple_icon: img/jacman.jpg ## size:114px*114px,please put image into the theme folder `/jacman/source/img`.
-author_img: img/author.jpg ## size:220px*220px.display author avatar picture.if don't want to display,please don't set this.
-banner_img: img/banner.jpg ## size:1920px*200px+. Banner Picture
-
-#### index post is expanding or not 摘要展开显示和阅读文本
-index:
-  expand: true           ## default is unexpanding,so you can only see the short description of each post.
-  excerpt_link: Read More
-
-close_aside: false  #close sidebar in post page if true
-mathjax: true      #enable mathjax if true
-share_to: true #enable share-to buttons if true
-
-#### Author information 作者信息包括名字简介等
+# Site Author - The following control what appear as part of the author content on the side bar.
+#               If a field is blank the icon and link will not appear, otherwise it will be shown.
+#               Additional customization can be done by editing /_includes/author-profile.html
 author:
-  name: TangZiFan      ## e.g. wuchong Author name
-  intro_line1:  "Hello ,I'm Novice in IT."    ## your introduction on the bottom of the page
-  intro_line2:  "This is my blog,believe it or not."  ## the 2nd line
-  weibo:      ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
-  weibo_verifier:  ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
-  tsina:      ## e.g. 2176287895  Your weibo ID,It will be used in share button.
-  douban:     ## e.g. wuchong1014 or your id for https://www.douban.com/people/wuchong1014
-  zhihu:      ## e.g. jark  for http://www.zhihu.com/people/jark
-  email:      ## e.g. imjark@gmail.com
-  twitter:    ## e.g. jarkwu for https://twitter.com/jarkwu
-  github:     ## e.g. wuchong for https://github.com/wuchong
-  facebook:   ## e.g. imjark for https://facebook.com/imjark
-  linkedin:   ## e.g. wuchong1014 for https://www.linkedin.com/in/wuchong1014
-  google_plus:    ## e.g. "111190881341800841449" for https://plus.google.com/u/0/111190881341800841449, the "" is needed!
-  stackoverflow:  ## e.g. 3222790 for http://stackoverflow.com/users/3222790/jark
-## if you set them, the corresponding  share button will show on the footer
+  # Biographic information
+  avatar           : "profile.png"
+  name             : "Zifan Tang"
+  pronouns         : # example: "she/her"
+  bio              : ""
+  location         : # ""
+  employer         : # ""
+  uri              : # URL
+  email            : "3340589482@qq.com"
 
-#### Toc 文章和侧边栏是否显示目录
-toc:
-  article: true   ## show contents in article.
-  aside: true     ## show contents in aside.
-## you can set both of the value to true of neither of them.
-## if you don't want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
+  # Academic websites
+  academia         : # URL
+  arxiv            : # URL - Update with the correct link to your profile
+  googlescholar    : # "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  inspire-hep      : # URL
+  impactstory      : # URL
+  orcid            : # "https://orcid.org/yourorcidurl"
+  semantic         : # URL
+  ssrn             : # URL
+  pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  researchgate     : # URL
+  scopus           : # URL
+  zotero           : # URL
 
-#### Links 友情链接
-links:
-  CODEFORCES: https://codeforces.com/profile/TangZiFan
-  CSDN: https://blog.csdn.net/m0_72893325
-  博客园: https://www.cnblogs.com/qq3340589482
-  洛谷: https://www.luogu.com.cn/user/802363
 
-#### Comment 评论系统
-duoshuo_shortname:    ## e.g. wuchong      your duoshuo short name.       website: http://duoshuo.com
-disqus_shortname:     ## e.g. wuchong      your disqus short name.        website: http://disqus.com
-hypercomments_id:     ## e.g. 91510        your hypercomments widget id.  website: http://hypercomments.com
-yungentie_productkey: ## your netease yungentie product key.              website: https://gentie.163.com
-## set only one of them
-## duoshuo will be shutting down on June 1, 2017
+  # Repositories and software development
+  bitbucket        : # Username - Update with your username on the site
+  codepen          : # Username
+  dribbble         : # Username
+  github           : "TZF0237"
+  kaggle           : # Username
+  stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")
 
-#### Share button 分享按钮
-jiathis:
-  enable: false ## if you use jiathis as your share tool,the built-in share tool won't be display.
-  id:    ## e.g. 1889330 your jiathis ID.
-  tsina: ## e.g. 2176287895 Your weibo id,It will be used in share button.
+  # Social media
+  artstation       : # Username
+  bluesky          : # "bsky.app" # Replace this with you Bluesky username
+  facebook         : # Username
+  flickr           : # Username
+  foursquare       : # Username
+  goodreads        : # Username
+  google_plus      : # Username
+  keybase          : # Username
+  instagram        : # Username
+  lastfm           : # Username
+  linkedin         : # Username
+  mastodon         : # URL
+  medium           : # URL
+  pinterest        : # Username
+  soundcloud       : # Username
+  steam            : # Username
+  telegram         : # URL
+  tumblr           : # Username
+  twitter          : # Username for X / Twitter
+  vine             : # Username
+  weibo            : # Username
+  wikipedia        : # Username
+  xing             : # Username
+  youtube          : # Username
+  zhihu            : # Username
 
-#### Analytics 配置网站分析
-google_analytics:
-  enable: true
-  id: G-FBH0T7X2D9       ## e.g. UA-46321946-2 your google analytics ID.
-  site:      ## e.g. wuchong.me your google analytics site or set the value as auto.
-## You MUST upgrade to Universal Analytics first!
-## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN
-baidu_tongji:
-  enable: true
-  sitecode: 226a1e9b0d253c5eb31717b480630438 ## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code
-cnzz_tongji:
-  enable: false
-  siteid:    ## e.g. 1253575964 your cnzz tongji site id
+# Publication Category - The following the list of publication categories and their headings
+publication_category:
+  manuscripts:
+    title: 'Journal Articles'
+  conferences:
+    title: 'Conference Papers'
 
-#### Miscellaneous 启用fancybox插件，totop滚动到顶部功能
-fancybox: true        ## if you use gallery post or want use fancybox please set the value to true.
-totop: true           ## if you want to scroll to top in every post set the value to true
+# Site Settings
+teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
+breadcrumbs              : false # true, false (default)
+words_per_minute         : 300  # Adjusted for Chinese reading speed
+future                   : true
+read_more                : "enabled" # if enabled, adds "Read more" links to excerpts
+talkmap_link             : false      #change to true to add link to talkmap on talks page
+comments:
+  provider               : "giscus" # "giscus", "disqus", "discourse", "facebook", "staticman", "custom", false
+  giscus:
+    repo                  : "TZF0237/TZF0237.github.io"
+    repo_id               : ""        # Get from https://giscus.app
+    category              : "Comments"
+    category_id           : ""        # Get from https://giscus.app
+    mapping               : "pathname"
+    reactions_enabled     : "1"
+    emit_metadata         : "0"
+    theme                 : "preferred_color_scheme"
+    lang                  : "zh-CN"
+  disqus:
+    shortname            :
+  discourse:
+    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
+  facebook:
+    appid                :
+    num_posts            : # 5 (default)
+    colorscheme          : # "light" (default), "dark"
+  staticman:
+    allowedFields          : ['name', 'email', 'url', 'message']
+    branch                 : "gh-pages" # "master", "gh-pages"
+    commitMessage          : "New comment."
+    filename               : comment-{@timestamp}
+    format                 : "yml"
+    moderation             : true
+    path                   : "_data/comments/{options.slug}"
+    requiredFields         : ['name', 'email', 'message']
+    transforms:
+      email                : "md5"
+    generatedFields:
+      date:
+        type               : "date"
+        options:
+          format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
+atom_feed:
+  hide                   : false     # change to true to hide the RSS feed in the footer
+  path                   : # blank (default) uses feed.xml
 
-#### Custom Search 自定义搜索设置
-google_cse:
-  enable: false
-  cx: 018294693190868310296:abnhpuysycw  ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.
-## https://www.google.com/cse/
-## To enable the custom search You must create a "search" folder in '/source' and a "index.md" file
-## set the 'front-matter' as
-## layout: search
-## title: search
-## ---
-baidu_search:     ## http://zn.baidu.com/
-  enable: false
-  id:   ## e.g. "783281470518440642"  for your baidu search id
-  site: http://zhannei.baidu.com/cse/search  ## your can change to your site instead of the default site
-tinysou_search:     ## http://tinysou.com/
-  enable: false
-  id:  ## e.g. "4ac092ad8d749fdc6293" for your tiny search id
-simple_jekyll_search:
-  enable: true
-  fulltext: false
 
-gems:
- - jemoji
+# SEO Related
+google_site_verification :
+bing_site_verification   :
+alexa_site_verification  :
+yandex_site_verification :
+
+
+# Social Sharing
+twitter:
+  username               : &twitter
+facebook:
+  username               :
+  app_id                 :
+  publisher              :
+og_image                 :  # Social media default site image
+og_description           :  # Social media default site image description
+# For specifying social profiles
+# - https://developers.google.com/structured-data/customize/social-profiles
+social:
+  type                   : # Person or Organization (defaults to Person)
+  name                   : # If the user or organization name differs from the site's name
+  links: # An array of links to social media profiles
+
+
+# Analytics
+analytics:
+  provider               : "google-analytics-4" # false (default), "google", "google-universal", "google-analytics-4", "custom"
+  google:
+    tracking_id          :
+    measurement_id       : ""  # GA4 Measurement ID, e.g. G-XXXXXXXXXX
+
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+  - files
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .github
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+  - CHANGELOG
+  - Capfile
+  - config
+  - Dockerfile
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - local
+  - log
+  - node_modules
+  - package.json*
+  - Rakefile
+  - README
+  - tmp
+  - vendor
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "<!--more-->"
+incremental: false
+
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+
+# These settings control the types of collections used by the template
+collections:
+  publications:
+    output: true
+    permalink: /:collection/:path/
+  competitions:
+    output: true
+    permalink: /:collection/:path/
+
+
+# These settings control how pages and collections are included in the site
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+      toc: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+  # _publications
+  - scope:
+      path: ""
+      type: publications
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # _competitions
+  - scope:
+      path: ""
+      type: competitions
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+
+# Outputting
+permalink: /posts/:title/
+# paginate: 5 # amount of posts to show
+# paginate_path: /page:num/
+timezone: Asia/Shanghai # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+# Mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+
+# Archives
+#  Type
+#  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
+#  - Jekyll Archives plugin archive pages ~> type: jekyll-archives
+#  Path (examples)
+#  - Archive page should exist at path when using Liquid method or you can
+#    expect broken links (especially with breadcrumbs enabled)
+#  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
+#  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
+#  - <base_path/my-awesome-category/index.html ~> path: /
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+# https://github.com/jekyll/jekyll-archives
+# jekyll-archives:
+#   enabled:
+#     - categories
+#     - tags
+#   layouts:
+#     category: archive-taxonomy
+#     tag: archive-taxonomy
+#   permalinks:
+#     category: /categories/:name/
+#     tag: /tags/:name/
+
+
+# HTML Compression
+# - https://jch.penibelst.de/
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
+
+
+# Search settings
+search:
+  enabled: true
+  min_length: 2
