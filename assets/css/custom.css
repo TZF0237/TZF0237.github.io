@@ -804,13 +804,33 @@ h3:hover .heading-anchor {
   margin-bottom: 1.5em;
 }
 
-/* Push sidebar to the left of the content container,
+/* Push sidebar to the far left of the viewport,
    allowing reading area to use full container width */
 @media screen and (min-width: 1024px) {
   .sidebar {
-    /* Position sidebar in the left margin outside #main */
-    left: max(1rem, calc((100vw - 1480px) / 2));
+    /* Push sidebar to the far left margin */
+    left: calc((100vw - 1280px) / 2 - 280px);
   }
+}
+@media screen and (min-width: 1024px) and (max-width: 1580px) {
+  .sidebar {
+    left: 0.5rem;
+  }
+}
+
+/* ---- Blog archive titles: larger + hover color ---- */
+.archive__item-title {
+  font-size: 1.35em !important;
+}
+.archive__item-title a {
+  transition: color 0.2s ease;
+}
+.archive__item-title a:hover {
+  color: #6a5acd !important;
+  text-decoration: underline !important;
+}
+[data-theme="dark"] .archive__item-title a:hover {
+  color: #b4befe !important;
 }
 
 /* Wider PDF viewer */
