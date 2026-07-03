@@ -1,13 +1,3 @@
 # Friends / Blogroll
 # Add your friends' blogs here. Each entry needs a name and url.
 # avatar and description are optional.
-
-- name: "Example Friend Blog"
-  url: "https://example.com"
-  avatar: ""
-  description: "A great tech blog about programming and life."
-
-- name: "Another Cool Site"
-  url: "https://example.org"
-  avatar: ""
-  description: "Thoughts on data science and machine learning."

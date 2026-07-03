@@ -5,13 +5,35 @@
     <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
   {% endif %}
 
-  <a href="https://bsky.app/intent/compose?text={{ base_path }}{{ page.url }}" class="btn btn--bluesky" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
+  <!-- WeChat (QR code modal) -->
+  <a href="javascript:void(0)" class="btn btn--wechat" onclick="showWechatQR('{{ base_path }}{{ page.url }}', '{{ page.title | escape }}')" title="Share on WeChat"><i class="fab fa-weixin" aria-hidden="true"></i><span> WeChat</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u={{ base_path }}{{ page.url }}" class="btn btn--facebook" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <!-- QQ/QZone -->
+  <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{ page.url | prepend: site.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--qq" title="Share on QQ" target="_blank" rel="noopener"><i class="fab fa-qq" aria-hidden="true"></i><span> QQ</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ base_path }}{{ page.url }}" class="btn btn--linkedin" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <!-- Weibo -->
+  <a href="https://service.weibo.com/share/share.php?url={{ page.url | prepend: site.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--weibo" title="Share on Weibo" target="_blank" rel="noopener"><i class="fab fa-weibo" aria-hidden="true"></i><span> Weibo</span></a>
 
-  <a href="https://www.addtoany.com/add_to/mastodon?linkurl={{  base_path | append: page.url | url_encode }}" class="btn btn--mastodon" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Mastodon"><i class="fab fa-mastodon" aria-hidden="true"></i><span> Mastodon</span></a>
+  <a href="https://x.com/intent/post?text={{ page.url | prepend: site.url | url_encode }}" class="btn btn--x" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X</span></a>
 
-  <a href="https://x.com/intent/post?text={{ base_path }}{{ page.url }}" class="btn btn--x" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
+  <a href="https://bsky.app/intent/compose?text={{ page.url | prepend: site.url | url_encode }}" class="btn btn--bluesky" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
 </section>
+
+<!-- WeChat QR Code Modal -->
+<div id="wechat-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;">
+  <div style="background:#fff;padding:24px;border-radius:12px;text-align:center;max-width:320px;width:90%;">
+    <p style="margin:0 0 12px;font-size:14px;color:#333;">Scan with WeChat to share</p>
+    <p style="margin:0 0 8px;font-size:12px;color:#888;word-break:break-all;" id="wechat-url-display"></p>
+    <img id="wechat-qr-img" src="" alt="WeChat QR Code" style="width:200px;height:200px;margin:8px auto;display:block;" />
+    <button onclick="document.getElementById('wechat-modal').style.display='none'" style="margin-top:12px;padding:8px 24px;border:none;border-radius:6px;background:#07c160;color:#fff;cursor:pointer;font-size:14px;">Close</button>
+  </div>
+</div>
+<script>
+function showWechatQR(url, title) {
+  var fullUrl = '{{ site.url }}' + url;
+  var qrSrc = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(fullUrl);
+  document.getElementById('wechat-qr-img').src = qrSrc;
+  document.getElementById('wechat-url-display').textContent = fullUrl;
+  document.getElementById('wechat-modal').style.display = 'flex';
+}
+</script>

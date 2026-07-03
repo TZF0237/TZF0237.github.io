@@ -704,68 +704,6 @@ h3:hover .heading-anchor {
   margin-right: 0.2em;
 }
 
-/* ---- Emoji Reactions ---- */
-.emoji-reactions {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin: 1rem 0;
-  padding: 0.75rem 0;
-  border-top: 1px solid #e9ecef;
-  border-bottom: 1px solid #e9ecef;
-  flex-wrap: wrap;
-}
-[data-theme="dark"] .emoji-reactions {
-  border-top-color: #313244;
-  border-bottom-color: #313244;
-}
-.emoji-reactions__label {
-  font-size: 0.85rem;
-  color: #999;
-  margin-right: 0.3rem;
-}
-.emoji-reaction {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
-  padding: 0.35rem 0.75rem;
-  border: 1px solid #e9ecef;
-  border-radius: 20px;
-  background: transparent;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.2s;
-  line-height: 1;
-}
-.emoji-reaction:hover {
-  border-color: #6a5acd;
-  background: rgba(106, 90, 205, 0.06);
-}
-.emoji-reaction.reacted {
-  background: rgba(106, 90, 205, 0.12);
-  border-color: #6a5acd;
-  cursor: default;
-}
-[data-theme="dark"] .emoji-reaction {
-  border-color: #45475a;
-}
-[data-theme="dark"] .emoji-reaction:hover {
-  border-color: #b4befe;
-  background: rgba(180, 190, 254, 0.08);
-}
-[data-theme="dark"] .emoji-reaction.reacted {
-  background: rgba(180, 190, 254, 0.15);
-  border-color: #b4befe;
-}
-.emoji-count {
-  font-size: 0.8rem;
-  color: #888;
-  font-weight: 600;
-}
-[data-theme="dark"] .emoji-count {
-  color: #a6adc8;
-}
-
 /* ---- Responsive Images ---- */
 .page__content img {
   max-width: 100%;
@@ -803,6 +741,29 @@ h3:hover .heading-anchor {
   height: auto;
 }
 
+/* ---- Share Buttons: WeChat / QQ / Weibo ---- */
+.btn--wechat {
+  background: #07c160;
+  color: #fff !important;
+}
+.btn--wechat:hover {
+  background: #06ad56;
+}
+.btn--qq {
+  background: #12b7f5;
+  color: #fff !important;
+}
+.btn--qq:hover {
+  background: #0fa5dd;
+}
+.btn--weibo {
+  background: #e6162d;
+  color: #fff !important;
+}
+.btn--weibo:hover {
+  background: #cf1428;
+}
+
 /* ---- Compact Footer ---- */
 .page__footer {
   margin-top: 2em;
@@ -831,4 +792,25 @@ h3:hover .heading-anchor {
 .page__footer-copyright a:hover {
   text-decoration: underline;
   opacity: 1;
+}
+
+/* ---- Reading Experience Improvements ---- */
+.page__content {
+  font-size: 1.05em;
+  line-height: 1.8;
+}
+
+.page__content p {
+  margin-bottom: 1.5em;
+}
+
+/* Wider PDF viewer */
+.pdf-viewer__iframe {
+  min-height: 600px;
+}
+
+@media screen and (min-width: 1280px) {
+  .pdf-viewer__iframe {
+    min-height: 800px;
+  }
 }
