@@ -15,4 +15,58 @@
 </script>
 <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
 
+<!-- Live2D Widget: umaru -->
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js"></script>
+<script>
+(function() {
+  if (typeof L2Dwidget === 'undefined') return;
+
+  try {
+    L2Dwidget.init({
+      model: {
+        jsonPath: 'https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models/live2d_evrstr/umaru/model.json',
+        scale: 1,
+      },
+      display: {
+        position: 'left',
+        width: 140,
+        height: 280,
+        hOffset: 5,
+        vOffset: 35,
+      },
+      mobile: {
+        show: true,
+        scale: 0.5,
+      },
+      react: {
+        opacityDefault: 0.8,
+        opacityOnHover: 0.3,
+      },
+    });
+  } catch (e) {
+    console.warn('Live2D widget init failed:', e);
+  }
+})();
+</script>
+<style>
+/* Keep Live2D canvas below the author sidebar, above the footer */
+#live2d-widget {
+  z-index: 15 !important;
+  pointer-events: none;
+}
+#live2d-widget canvas {
+  pointer-events: auto;
+}
+@media screen and (min-width: 1024px) {
+  #live2d-widget {
+    bottom: 2rem !important;
+  }
+}
+/* Hide Live2D if it overlaps with search overlay */
+.search-overlay.is-visible ~ #live2d-widget,
+.search-overlay.is-visible + #live2d-widget {
+  display: none;
+}
+</style>
+
 <!-- end custom footer snippets -->
