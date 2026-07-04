@@ -804,17 +804,17 @@ h3:hover .heading-anchor {
   margin-bottom: 1.5em;
 }
 
-/* Push sidebar to the far left of the viewport,
-   allowing reading area to use full container width */
+/* Push sidebar to the left of the main content area,
+   keeping it within the viewport with a comfortable margin */
 @media screen and (min-width: 1024px) {
   .sidebar {
-    /* Push sidebar to the far left margin */
-    left: calc((100vw - 1280px) / 2 - 280px);
+    /* Clamp prevents sidebar from going off-screen left or overlapping content */
+    left: clamp(1.2rem, calc((100vw - 1280px) / 2 - 240px), 8rem);
   }
 }
 @media screen and (min-width: 1024px) and (max-width: 1580px) {
   .sidebar {
-    left: 0.5rem;
+    left: 1.5rem;
   }
 }
 
@@ -841,6 +841,17 @@ h3:hover .heading-anchor {
 .sidebar .author__name {
   font-size: 1.35em !important;
   font-weight: 700;
+}
+
+/* ---- Sidebar English name below Chinese name ---- */
+.sidebar .author__english-name {
+  margin: -2px 0 10px 0;
+  font-size: 0.85em;
+  color: #666;
+  font-family: $sans-serif;
+}
+[data-theme="dark"] .sidebar .author__english-name {
+  color: #a0a0a0;
 }
 
 /* Wider PDF viewer */
